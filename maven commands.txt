@@ -1,0 +1,15 @@
+---------------------MAVEN COMMANDS------------------
+
+1. to create maven project:
+
+mvn archetype:generate -DgroupId=com.javatpoint -DartifactId=CubeGenerator -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false  
+
+2. to complie the java project
+
+mvn clean compile
+
+3. to run the java project
+
+java com.javatpoint.App
+
+4. mvn package it will complete the build the life cycle(validate compile, test, package, integration-test, verify, install, deploy )

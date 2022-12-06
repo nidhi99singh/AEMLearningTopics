@@ -1,0 +1,71 @@
+----------------------------------Query Builder in AEM--------------------------------
+link: http://localhost:4502/libs/cq/search/content/querydebug.html
+eg 1: 
+
+type=cq:Page
+path=/content/wknd
+
+eg 2: 
+
+type=cq:Page
+path=/content/wknd
+p.limit=10
+
+[Note: by default display 10 results
+p.limit=-1 will display all results ]
+
+eg 3 : search page by title name (any property)
+
+type=cq:Page
+path=/content/wknd/us
+property=jcr:PageContent/jcr:title
+property.value=sample page 1
+
+eg 4 : search page by title name (any property)
+
+type=cq:Page
+path=/content/wknd/us
+property=jcr:PageContent/jcr:title
+property.1_value=sample page 1
+property.2_value=sample page 2
+
+[Note: it will search for both values and return any of the page]
+
+
+eg 5: to apply and condition
+	property.and=true
+
+eg 6: to apply or condition
+	property.and=false
+
+eg 7:
+	type=cq:Page
+	path=/content/wknd/
+	group.p.or=true
+	group.1_property=jcr:content/jcr:title
+	group.1_property.value=First page
+	group.2_property=jcr:content/cq:lastModifiedBy
+	group.2_property.value=admin
+
+to search for multiple properties make group(here group name can be any thing)
+
+
+---------------------------p.hits=selective  -------------> to get selective properties
+p.properties=jcr:content/jcr:title jcr:content/cq:lastModified
+
+------------- order by ---------------
+orderby=@jcr:content/cq:lastModified
+orderby.sort=desc 
+
+------------- to provide multiple paths ---------
+type=cq:template
+group.1_path=/content/wknd
+group.2_path=/conf/wknd
+group.p.or=true
+
+--------------------------- to find specific type of files------------
+nodename=*.css
+
+------- offset is used for pagination ------------
+p.offset=30 ---- the pages will start from 30
+p.limit=20

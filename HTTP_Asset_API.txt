@@ -1,0 +1,23 @@
+HTTP Asset API
+basic auth is always required
+
+
+-----------------to create folder---------------
+POST Method : 
+http://localhost:4502//content/dam/wknd/*
+
+http://localhost:4502//content/dam/wknd/customFolder (we can give folder name in url also)
+
+to add properties, in body (urlcoded format)
+basic auth : aem credentials
+
+
+GET Method :
+http://localhost:4502//content/dam/wknd/custom_asset_folder.json
+
+
+----------------to add renditions-----------
+
+Rendition is a process of creating multiple sizes and versions of images post uploading them to DAM (Digital Asset Management).
+http://localhost:4502//content/dam/wknd/customFolder/renditions/*
+add file in body
